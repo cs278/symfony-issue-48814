@@ -1,0 +1,13 @@
+services:
+    App\SentryBeforeSend:
+        class: App\SentryBeforeSend
+        autowire: true
+        autoconfigure: true
+        public: false
+        calls:
+            - withTag: !returns_clone ['foo', 'bar']
+
+sentry:
+    dsn: '%env(SENTRY_DSN)%'
+    options:
+        before_send: 'App\SentryBeforeSend'

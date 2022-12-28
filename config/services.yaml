@@ -1,0 +1,8 @@
+services:
+    _defaults:
+        autoconfigure: true
+
+    App\TestCommand:
+        arguments:
+            - '@Sentry\State\HubInterface'
+    
